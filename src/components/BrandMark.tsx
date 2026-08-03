@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-marina.png.asset.json";
+import logo from "@/assets/logo-marina.png.";
 
 type Props = { className?: string };
 
@@ -6,7 +6,7 @@ type Props = { className?: string };
 export function BrandMark({ className }: Props) {
   return (
     <img
-      src={logo.url}
+      src={logo}
       alt="Marina Photo logo"
       className={className}
       loading="eager"
