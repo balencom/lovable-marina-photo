@@ -1,0 +1,136 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --font-display: "Newsreader", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-hover: hsl(var(--primary-hover));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-ink: hsl(var(--accent-ink));
+  --color-accent-soft: hsl(var(--accent-soft));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-ring-offset-background: hsl(var(--background));
+
+  /* Legacy aliases (kept so existing class names still compile).
+     All values collapse into the new palette. */
+  --color-cream: hsl(var(--background));
+  --color-cream-warm: hsl(var(--card));
+  --color-sand: hsl(var(--muted));
+  --color-prairie: hsl(var(--primary));
+  --color-prairie-soft: hsl(var(--muted-foreground));
+  --color-ink: hsl(var(--foreground));
+  --color-gold: hsl(var(--accent));
+  --color-gold-soft: hsl(var(--secondary));
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Neutrals — light, slightly warm canvas + near-charcoal ink */
+  --background: 60 20% 98%;
+  --foreground: 150 8% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 150 8% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 150 8% 12%;
+  --muted: 150 14% 95%;
+  --muted-foreground: 150 6% 38%;
+  --border: 150 10% 88%;
+  --input: 150 10% 88%;
+
+  /* Primary — deep forest green (dark sections, buttons) */
+  --primary: 150 24% 16%;
+  --primary-foreground: 60 20% 98%;
+  --primary-hover: 150 24% 21%;
+
+  /* Secondary — soft green tint surface */
+  --secondary: 150 20% 92%;
+  --secondary-foreground: 150 24% 16%;
+
+  /* Accent — clean green; accent-ink = readable green text on light bg */
+  --accent: 152 32% 40%;
+  --accent-foreground: 60 20% 98%;
+  --accent-ink: 154 38% 27%;
+  --accent-soft: 150 38% 78%;
+
+  --destructive: 0 65% 45%;
+  --destructive-foreground: 60 20% 98%;
+  --ring: 152 32% 40%;
+}
+
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 32;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  ::selection {
+    background: hsl(var(--accent));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@utility italic-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+@utility container-x {
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+  margin-inline: auto;
+  max-width: 64rem;
+}
